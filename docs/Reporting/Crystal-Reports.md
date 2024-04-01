@@ -1,7 +1,8 @@
 ---
 layout: base
 title: Crystal Reports
-created: 1518649489
+date: 2018-02-14
+last_modified: 2024-03-30
 description: C# crystal report examples
 tags: c# crystal reports
 ---
@@ -13,6 +14,23 @@ can be downloaded from [https://wiki.scn.sap.com/wiki/display/BOBJ/Crystal+Repor
 
 All examples below require references for __CrystalDecisions.CrystalReports.Engine__ and __CrystalDecisions.Shared__ to be added to your project.
 
+Newer Crystal runtime, such as SP 35
+
+```xml
+<ItemGroup>
+		<Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+			<HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\CrystalDecisions.Windows.Forms\v4.0_13.0.4000.0__692fbea5521e1304\CrystalDecisions.Windows.Forms.dll</HintPath>
+		</Reference>
+		<Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+			<HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\CrystalDecisions.CrystalReports.Engine\v4.0_13.0.4000.0__692fbea5521e1304\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+		</Reference>
+		<Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+			<HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\CrystalDecisions.Shared\v4.0_13.0.4000.0__692fbea5521e1304\CrystalDecisions.Shared.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+```
+
+Old Crystal SP 20 runtime or older references
 ```xml
 <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, 
 Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -145,3 +163,17 @@ public static ExportPdf(string crystalTemplateFilePath,
 }
 ```
 
+
+# net6.0 amd newer
+
+As of March 30, 2024 the dotnet crystal reports runtime only works with .netframework 4.8.  There is no support for dotnet core and the new net6.0 and newer versions of dotnet.
+
+To work with legacy crystal reports in a modern dotnet environment see [CrytalCMD](https://github.com/majorsilence/CrystalCmd).  CrystalCMD is a tool to permit sending crystal reports rpt files and data to an external .net framework 4.8 server or console application that will return a pdf document that can be viewed in a net6.0 or newer application.  Use libraries such as [IronPDF](https://ironpdf.com/blog/using-ironpdf/pdf-viewer-csharp-windows-application-tutorial/) or Telerik pdf viewer options.
+
+A few Telerik options include:
+- [UI for WinForms - WinForms PDF Viewer](https://www.telerik.com/products/winforms/pdf-viewer.aspx)
+- [UI for ASP.NET Core - ASP.NET Core PDF Viewer](https://www.telerik.com/aspnet-core-ui/pdf-viewer)
+- [UI for Blazor - Blazor PDF Viewe](https://www.telerik.com/blazor-ui/pdf-viewer)
+- [UI for .NET MAUI - .NET MAUI PDF Viewer](https://www.telerik.com/maui-ui/pdf-viewer)
+
+If the application is a web application another option is to let the browser display the pdf using the browsers native pdf viewer.
