@@ -2,7 +2,7 @@
 layout: post
 title: Haproxy and letsencrypt
 date: 2022-04-10
-last_modified: 2022-04-10
+last_modified: 2024-06-07
 comments: true
 ---
 
@@ -71,7 +71,7 @@ frontend letsencrypt-frontend
 
 frontend my-web-app-fe
     #bind *:80
-    bind *:443 ssl crt /etc/lets-ecrypt/haproxy-gen/
+    bind *:443 ssl crt /etc/lets-ecrypt/haproxy-gen/ alpn h2,http/1.1
     #http-request redirect scheme https unless { ssl_fc }
 
     # detect domains
