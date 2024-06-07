@@ -2,7 +2,7 @@
 layout: post
 title: postgresql
 date: 2024-06-04
-last_modified: 2024-06-04
+last_modified: 2024-06-07
 comments: true
 ---
 
@@ -18,6 +18,14 @@ Install PostgreSQL and start the command line tool psql.
 sudo apt update
 sudo apt install postgresql
 sudo -u postgres psql
+```
+
+### Firewall
+
+If you have a firewall enabled you will need to permit traffic.
+
+```bash
+sudo ufw allow postgresql
 ```
 
 ## Fedora
