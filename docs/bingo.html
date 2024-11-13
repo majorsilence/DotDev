@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,44 +8,59 @@
     <style>
         @media print {
             .bingo-card {
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
+
             body * {
                 visibility: hidden;
             }
-            #bingoCardsContainer, #bingoCardsContainer * {
+
+            #bingoCardsContainer,
+            #bingoCardsContainer * {
                 visibility: visible;
             }
+
             #bingoCardsContainer {
                 position: absolute;
                 left: 0;
                 top: 0;
             }
         }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
         .bingo-card {
             display: inline-block;
             margin: 10px;
             padding: 10px;
             border: 2px solid #000;
-            /*width: 210mm;*/ /* A4 width */
-            /*height: 297mm;*/ /* A4 height */
-            width: 8.5in; /* Letter width */
-            height: 11in; /* Letter height */
+            /*width: 210mm;*/
+            /* A4 width */
+            /*height: 297mm;*/
+            /* A4 height */
+            width: 8.5in;
+            /* Letter width */
+            height: 11in;
+            /* Letter height */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            box-sizing: border-box;
+            overflow: hidden;
         }
+
         .bingo-card table {
             width: 100%;
             height: 100%;
             border-collapse: collapse;
         }
-        .bingo-card th, .bingo-card td {
+
+        .bingo-card th,
+        .bingo-card td {
             border: 1px solid #000;
             width: 20%;
             height: 20%;
@@ -53,6 +69,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Bingo Card Generator</h1>
     <label for="sheetCount">Number of Sheets:</label>
@@ -91,7 +108,7 @@
                 card.className = 'bingo-card';
                 if (backgroundImage) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         card.style.backgroundImage = `url(${e.target.result})`;
                     }
                     reader.readAsDataURL(backgroundImage);
@@ -175,4 +192,5 @@
         document.getElementById('customHeight').addEventListener('input', updatePaperSize);
     </script>
 </body>
+
 </html>
