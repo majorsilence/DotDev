@@ -7,6 +7,7 @@ navgroup: posts
 <h1>Pages</h1>
 
 <ul>
+    <li><a href="/docs/bingo.html">bingo</a></li>
     {% for page in site.pages %}{% if page.exclude != true %}<url>
     <li>
         <a href="{{site.canonical_domain}}{{site.baseurl}}{{ page.url }}">
